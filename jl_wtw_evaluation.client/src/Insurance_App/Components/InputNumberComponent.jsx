@@ -2,22 +2,16 @@ import React, { useState } from 'react';
 
 function InputNumberComponent(props) {
 
-    const [retantionState, setRetantionState] = useState(props.value);
-
+    const [retantionState, setRetantionState] = useState(0);
+    const [showDelayedText, setShowDelayedText] = useState(false);
     function handleInputChange(event) {
         const { value } = event.target;
-
-
-        if (value < 1000) {
-            setRetantionState(1000);
-        } else {
-            setRetantionState(value * 1000);
-        }
+        setRetantionState(value);
     }
 
     return (
         <div>
-            <label>{props.labaelText}</label>
+            <label>{props.labelText}</label>
             <input type="number" onChange={handleInputChange} value={retantionState}></input>
         </div>
     );

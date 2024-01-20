@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 function CalculateButtonComponent() {
-    const [arrayState, setArrayState] = useState([]);
-    const [enableState, setEnableState] = useState(false);
     const [showDelayedText, setShowDelayedText] = useState(false);
-
+            console.log(event);
 
     const delay = async (ms) => {
         return new Promise((resolve) =>
@@ -12,16 +10,19 @@ function CalculateButtonComponent() {
     };
 
     const handleOnClick = async () => {
-        await delay(2000);
-        setShowDelayedText(true);
+        setShowDelayedText(true)
+        await delay(3000);
+        setShowDelayedText(false);
+        console.log(showDelayedText);
     };
 
     return (
         <div>
             <button onClick={handleOnClick}>Calculate</button>
-            <label visible={false}>{props.labaelText}</label>
-            </div>
-  );
+
+            <label id="loadingLabel" style={showDelayedText ? { visibility: "visible" } : { visibility: "collapse" }}>Loading...</label>
+        </div>
+    );
 }
 
 export default CalculateButtonComponent;

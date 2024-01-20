@@ -9,7 +9,7 @@ function Dropdown(props) {
     }
     return (
         <div>
-            <label>{props.labaelText}</label>
+            <label>{props.labelText}</label>
             <select name="cars" id="cars" value={executionState} onChange={handleInputChange}>
                 <option value={options[0]} >{options[0]}</option>
                 <option value={options[1]} >{options[1]}</option>

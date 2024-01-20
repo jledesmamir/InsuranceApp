@@ -25,7 +25,7 @@ body {
         font-weight: 200;
     }
 
-input, select {
+input, select, option {
     border: 1px solid rgba(252, 252, 252, 0.4);
     background-color: rgba(252, 252, 252, 0.2);
     width: 250px;
@@ -40,6 +40,29 @@ input, select {
     font-weight: 300;
 }
 
+ table, tr, td {
+    border: 1px solid rgba(252, 252, 252, 0.4);
+    background-color: rgba(252, 252, 252, 0.2);
+    width: 700px;
+    border-radius: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    font-weight: 300;
+}
+th {
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+#loadingLabel {
+    display: block;
+    margin:1em;
+}
 button {
     appearance: none;
     outline: 0;
