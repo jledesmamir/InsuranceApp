@@ -39,7 +39,10 @@ input, select, option {
     color: white;
     font-weight: 300;
 }
-
+option {
+    color: white;
+    background: #50a3a2;
+}
  table, tr, td {
     border: 1px solid rgba(252, 252, 252, 0.4);
     background-color: rgba(252, 252, 252, 0.2);
@@ -47,7 +50,7 @@ input, select, option {
     border-radius: 3px;
     font-family: "Source Sans Pro", sans-serif;
     padding: 10px 15px;
-    margin: 0 auto 10px auto;
+    margin: 10px auto 10px auto;
     text-align: center;
     font-size: 18px;
     color: white;
