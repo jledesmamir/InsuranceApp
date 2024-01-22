@@ -162,7 +162,7 @@ function FormC() {
 
                         <tr key={index}>
                             <td>{currentDate}</td>
-                            <td>{`${((element.mainRetention / element.mainLimit) * 100).toFixed(2)}` + '%'}</td>
+                            <td>{`${((element.mainRetention / element.mainLimit) * 100).toFixed(1)}` + '%'}</td>
                             <td>${element.mainRetention}</td>
                         </tr>
                     ))}
