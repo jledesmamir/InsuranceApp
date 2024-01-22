@@ -78,20 +78,36 @@ function FormC() {
     }
     function handleChange(event) {
         const { name, value } = event.target;
-
         setInputsCollection(prevValue => {
             if (name === "mainLimit") {
-                return {
-                    mainLimit: value,
-                    mainRetention: prevValue.mainRetention,
-                    fecha: prevValue.fecha
-                };
+                if (value <= 0) {
+                    return {
+                        mainLimit: 1,
+                        mainRetention: prevValue.mainRetention,
+                        fecha: prevValue.fecha
+                    };
+                }
+                else {
+                    return {
+                        mainLimit: value,
+                        mainRetention: prevValue.mainRetention,
+                        fecha: prevValue.fecha
+                    };
+                }
             } else if (name === "mainRetention") {
-                return {
-                    mainLimit: prevValue.mainLimit,
-                    mainRetention: value,
-                    fecha: prevValue.fecha
-                };
+                if (value <= 0) {
+                    return {
+                        mainLimit: prevValue.mainLimit,
+                        mainRetention: 1,
+                        fecha: prevValue.fecha
+                    };
+                } else {
+                    return {
+                        mainLimit: prevValue.mainLimit,
+                        mainRetention: value,
+                        fecha: prevValue.fecha
+                    };
+                }
             } else if (name === "fecha") {
                 return {
                     mainLimit: prevValue.mainLimit,
@@ -100,6 +116,11 @@ function FormC() {
                 };
             }
         });
+        //if ((name === "mainLimit" && inputsCollection.mainLimit < 1000) || (name === "mainRetention" && inputsCollection.mainRetention < 1000)) {
+        //    setDisableState(true);
+        //} else {
+        //    setDisableState(false);
+        //}
     }
 
     function addItem() {
@@ -108,7 +129,7 @@ function FormC() {
             return [...prevItems, inputsCollection];
         });
         setInputsCollection({ mainLimit: 0, mainRetention: 0 });
-        setTypeInput( `${options[0]}`);
+        setTypeInput(`${options[0]}`);
     }
 
     return (
@@ -127,7 +148,7 @@ function FormC() {
                         <option key={index} value={option.value} >{option.opt}</option>
                     ))}
                 </select>
-                <button onClick={handleOnClick}>
+                <button onClick={handleOnClick} disabled={(inputsCollection.mainLimit < 1000 || inputsCollection.mainRetention < 1000) ? true : false} style={(inputsCollection.mainLimit < 1000 || inputsCollection.mainRetention < 1000) ? { opacity: "0.4" } : { opacity: null }}>
                     <span>Calculate</span>
                 </button>
                 <label id="loadingLabel" style={showDelayedText ? { visibility: "visible" } : { visibility: "collapse" }}>Loading...</label>
