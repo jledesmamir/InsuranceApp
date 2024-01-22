@@ -31,9 +31,9 @@ function FormC() {
     };
 
     const handleOnClick = async () => {
-        //setShowDelayedText(true)
+        setShowDelayedText(true)
         await delay(3000);
-        //setShowDelayedText(false);
+        setShowDelayedText(false);
         console.log(showDelayedText);
         addItem();
     };
@@ -147,7 +147,9 @@ function FormC() {
                 <button onClick={handleOnClick} disabled={(inputsCollection.mainLimit < 1000 || inputsCollection.mainRetention < 1000) ? true : false} style={(inputsCollection.mainLimit < 1000 || inputsCollection.mainRetention < 1000) ? { opacity: "0.4" } : { opacity: null }}>
                     <span>Calculate</span>
                 </button>
-                <img id="loadingImage" src={val} alt="Unable To Load" style={showDelayedText ? { visibility: "visible", height: "40px", width: "40px" } : { visibility: "collapse", height: "0px", width: "0px" }}></img>
+                <div>
+                    <img id="loadingImage" src={val} alt="Unable To Load" style={showDelayedText ? { visibility: "visible", height: "300px", width: "300px", display: "inline" } : { visibility: "collapse", height: "0px", width: "0px" }}></img>
+                </div>
             </div>
             <div>
                 <table>
@@ -157,9 +159,10 @@ function FormC() {
                         <th>Benchmark 2</th>
                     </tr>
                     {items.map((element, index) => (
+
                         <tr key={index}>
                             <td>{currentDate}</td>
-                            <td>{`${(element.mainRetention / element.mainLimit) * 100}` + '%'}</td>
+                            <td>{`${((element.mainRetention / element.mainLimit) * 100).toFixed(2)}` + '%'}</td>
                             <td>${element.mainRetention}</td>
                         </tr>
                     ))}
