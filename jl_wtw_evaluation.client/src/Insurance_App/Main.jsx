@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDom from "react-dom";
+import val from "./Img/loader3.gif";
 //import CalculateButtonComponent from "./Components/CalculateButtonComponent.jsx";
 //import InputNumberComponent from "./Components/InputNumberComponent.jsx";
 //import TypeExecutionComponent from "./Components/TypeExecutionComponent.jsx";
@@ -30,9 +31,9 @@ function FormC() {
     };
 
     const handleOnClick = async () => {
-        setShowDelayedText(true)
+        //setShowDelayedText(true)
         await delay(3000);
-        setShowDelayedText(false);
+        //setShowDelayedText(false);
         console.log(showDelayedText);
         addItem();
     };
@@ -116,11 +117,6 @@ function FormC() {
                 };
             }
         });
-        //if ((name === "mainLimit" && inputsCollection.mainLimit < 1000) || (name === "mainRetention" && inputsCollection.mainRetention < 1000)) {
-        //    setDisableState(true);
-        //} else {
-        //    setDisableState(false);
-        //}
     }
 
     function addItem() {
@@ -151,7 +147,7 @@ function FormC() {
                 <button onClick={handleOnClick} disabled={(inputsCollection.mainLimit < 1000 || inputsCollection.mainRetention < 1000) ? true : false} style={(inputsCollection.mainLimit < 1000 || inputsCollection.mainRetention < 1000) ? { opacity: "0.4" } : { opacity: null }}>
                     <span>Calculate</span>
                 </button>
-                <label id="loadingLabel" style={showDelayedText ? { visibility: "visible" } : { visibility: "collapse" }}>Loading...</label>
+                <img id="loadingImage" src={val} alt="Unable To Load" style={showDelayedText ? { visibility: "visible", height: "40px", width: "40px" } : { visibility: "collapse", height: "0px", width: "0px" }}></img>
             </div>
             <div>
                 <table>

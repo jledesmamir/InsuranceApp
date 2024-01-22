@@ -9,6 +9,7 @@
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist</PublishAssetsDirectory>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="src\Insurance_App\Img\" />
     <Folder Include="src\Insurance_App\Style\" />
   </ItemGroup>
 </Project>
